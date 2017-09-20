@@ -1,4 +1,4 @@
-#web application with article and commentary, learning objectives
+# web application with article and commentary, learning objectives
 
-##initialisation
-*npm install
+## initialisation
+* npm install
