@@ -1,0 +1,39 @@
+<?php
+
+session_start();
+//connect db
+$p = 'home';
+if(isset($_GET['p'])){
+	$p=$_GET['p'];
+}
+
+ob_start();
+
+if($p==='home'){
+	$title='acceuil';
+	include "pages/home.php";
+}
+if($p==='article'){
+	$title="detail de l'article";
+	include "pages/detail_article.php";
+}
+if($p==='modif'){
+	$title ="Modifier un article";
+	include "pages/modif_article.php";
+}
+if($p==='commentaires'){
+	$title ="Gestion des commentaires";
+	include "pages/gestion_commentaire.php";
+}
+if($p==='connexion'){
+	$title ="Login";
+	include 'pages/connexion.php';
+}
+if($p==='indexAdmin'){
+	$title ="Acceuil back office";
+	include 'pages/index_admin.php';
+}
+$content=ob_get_clean();
+
+include "./assets/template/layout.php";
+
