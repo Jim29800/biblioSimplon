@@ -1,29 +1,49 @@
 <?php
 
-//require('../vendor/autoload.php');
+session_start();
+//connect db
+// $user = "root";
+// $pass = "admin";
+// try {
+//     $bdd = new PDO('mysql:host=localhost;dbname=db_biblio', $user, $pass);
+// } catch (PDOException $e) {
+//     print "Erreur !: " . $e->getMessage() . "<br/>";
+//     die();
+// };
 
-$app = new Silex\Application();
-$app['debug'] = true;
 
-// Register the monolog logging service
-$app->register(new Silex\Provider\MonologServiceProvider(), array(
-  'monolog.logfile' => 'php://stderr',
-));
+$p = 'home';
+if(isset($_GET['p'])){
+	$p=$_GET['p'];
+}
 
-// Register view rendering
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__.'/views',
-));
+ob_start();
 
-// Our web handlers
+if($p==='home'){
+	$title='acceuil';
+	include "pages/home.php";
+}
+if($p==='article'){
+	$title="detail de l'article";
+	include "pages/detail_article.php";
+}
+if($p==='modif'){
+	$title ="Modifier un article";
+	include "pages/modif_article.php";
+}
+if($p==='commentaires'){
+	$title ="Gestion des commentaires";
+	include "pages/gestion_commentaire.php";
+}
+if($p==='connexion'){
+	$title ="Login";
+	include 'pages/connexion.php';
+}
+if($p==='indexAdmin'){
+	$title ="Acceuil back office";
+	include 'pages/index_admin.php';
+}
+$content=ob_get_clean();
 
-$app->get('/', function() use($app) {
-    $app['monolog']->addDebug('logging output.');
-    return $app['twig']->render('index.twig');
-});
-$app->get('/cowsay', function() use($app) {
-    $app['monolog']->addDebug('cowsay');
-    return "<pre>".\Cowsayphp\Cow::say("Cool beans")."</pre>";
-});
+include "./assets/template/layout.php";
 
-$app->run();
