@@ -2,6 +2,16 @@
 
 session_start();
 //connect db
+$user = "root";
+$pass = "admin";
+try {
+    $bdd = new PDO('mysql:host=localhost;dbname=db_biblio', $user, $pass);
+} catch (PDOException $e) {
+    print "Erreur !: " . $e->getMessage() . "<br/>";
+    die();
+};
+
+
 $p = 'home';
 if(isset($_GET['p'])){
 	$p=$_GET['p'];
