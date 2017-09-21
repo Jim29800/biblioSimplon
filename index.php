@@ -2,14 +2,14 @@
 
 session_start();
 //connect db
-$user = "root";
-$pass = "admin";
-try {
-    $bdd = new PDO('mysql:host=localhost;dbname=db_biblio', $user, $pass);
-} catch (PDOException $e) {
-    print "Erreur !: " . $e->getMessage() . "<br/>";
-    die();
-};
+// $user = "root";
+// $pass = "admin";
+// try {
+//     $bdd = new PDO('mysql:host=localhost;dbname=db_biblio', $user, $pass);
+// } catch (PDOException $e) {
+//     print "Erreur !: " . $e->getMessage() . "<br/>";
+//     die();
+// };
 
 
 $p = 'home';
