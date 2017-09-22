@@ -2,14 +2,14 @@
 
 session_start();
 //connect db
-// $user = "root";
-// $pass = "admin";
-// try {
-//     $bdd = new PDO('mysql:host=localhost;dbname=db_biblio', $user, $pass);
-// } catch (PDOException $e) {
-//     print "Erreur !: " . $e->getMessage() . "<br/>";
-//     die();
-// };
+$user = "root";
+$pass = "admin";
+try {
+    $bdd = new PDO('mysql:host=localhost;dbname=db_biblio', $user, $pass);
+} catch (PDOException $e) {
+    print "Erreur !: " . $e->getMessage() . "<br/>";
+    die();
+};
 
 
 $p = 'home';
@@ -43,7 +43,15 @@ if($p==='indexAdmin'){
 	$title ="Acceuil back office";
 	include 'pages/index_admin.php';
 }
-$content=ob_get_clean();
 
+if($p==='logout'){
+	$title ="logout...";
+	include 'pages/deconnexion.php';
+}
+
+$content=ob_get_clean();
+if ($content == ''){
+	header("Location: ?p=home");
+}
 include "./assets/template/layout.php";
 
