@@ -25,11 +25,11 @@
 					<?= $disconect ?>
 				</div>
 				
-				<form method='POST' action='?p=home'class="navbar-form navbar-right" role="search">
+				<form method='GET' action='?p=home'class="navbar-form navbar-right" role="search">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Search">
+						<input type="text" name='search' class="form-control" placeholder="Search">
 					</div>
-					<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search
+					<button type="submit" action='?p=home&' class="btn btn-default"><i class="glyphicon glyphicon-search
 						"></i></button>
 					</form>
 				</div>
