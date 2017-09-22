@@ -47,12 +47,14 @@ if($p==='indexAdmin'){
 	$title ="Acceuil back office";
 	include 'pages/index_admin.php';
 }
-
 if($p==='logout'){
 	$title ="logout...";
 	include 'pages/deconnexion.php';
 }
-
+if($p==='suppr'){
+	$title ="suppresion...";
+	include 'pages/suppress.php';
+}
 $content=ob_get_clean();
 if ($content == ''){
 	header("Location: ?p=home");
