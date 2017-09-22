@@ -8,5 +8,5 @@ if(!empty($_SESSION["login"])){
 
 }else{
     //redirige la personne sur l'index si elle n'est pas connecté
-    header("Location: index.php");
+    header("Location: ?p=home");
 }
