@@ -32,7 +32,10 @@ try {
 ?>
 <form action="" method="post" class="text-center">
 <ul class="list-unstyled">
-    <li><input type="submit" value="Créer l'article"></li><br/>
+    <li>
+        <input type="submit" value="Créer l'article" class="btn btn-success">
+        <a href="?p=home" class="btn btn-danger">Annuler</a>
+    </li><br/>
     <li class="form-inline">
         <div class="form-group">
             <input require type="text" name="titre" id="titre" placeholder="Titre">
