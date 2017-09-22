@@ -1,3 +1,12 @@
+<?php
+	
+
+    if(!empty($_SESSION['login'])){
+		$disconect = "<a class='navbar-brand' href='?p=logout'><i class='glyphicon glyphicon-log-out'></i></a>";
+		$homeAdmin = '<a href="?p=indexAdmin" class="navbar-brand"><i class="glyphicon glyphicon-cog"></i></a>';
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +21,11 @@
 			<div class="container">
 				<div class="navbar-header">
 					<a href="?p=home" class="navbar-brand"><i class="glyphicon glyphicon-home"></i></a>
+					<?= $homeAdmin ?>
+					<?= $disconect ?>
 				</div>
 				
-				<form class="navbar-form navbar-right" role="search">
+				<form method='POST' action='?p=home'class="navbar-form navbar-right" role="search">
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="Search">
 					</div>

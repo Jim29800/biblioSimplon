@@ -47,7 +47,15 @@ if($p==='indexAdmin'){
 	$title ="Acceuil back office";
 	include 'pages/index_admin.php';
 }
-$content=ob_get_clean();
 
+if($p==='logout'){
+	$title ="logout...";
+	include 'pages/deconnexion.php';
+}
+
+$content=ob_get_clean();
+if ($content == ''){
+	header("Location: ?p=home");
+}
 include "./assets/template/layout.php";
 

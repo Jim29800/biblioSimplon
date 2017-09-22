@@ -9,7 +9,7 @@ if (!empty($_POST)):
     $resultat_saisi = $bdd->query($sql_connexion)->fetch();
     if (!empty($resultat_saisi)){
         $_SESSION["login"]=$pseudo_saisi;
-        header("Location: index.php?p=indexAdmin");
+        header("Location: ?p=indexAdmin");
     }else{
         $message_erreur = "Mot de passe ou nom d'utilisateur incorect.";
     };
