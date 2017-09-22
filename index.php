@@ -2,14 +2,14 @@
 
 session_start();
 //connect db
-// $user = "root";
-// $pass = "admin";
-// try {
-//     $bdd = new PDO('mysql:host=localhost;dbname=db_biblio', $user, $pass);
-// } catch (PDOException $e) {
-//     print "Erreur !: " . $e->getMessage() . "<br/>";
-//     die();
-// };
+$user = "root";
+$pass = "admin";
+try {
+    $bdd = new PDO('mysql:host=localhost;dbname=db_biblio', $user, $pass);
+} catch (PDOException $e) {
+    print "Erreur !: " . $e->getMessage() . "<br/>";
+    die();
+};
 
 
 $p = 'home';
@@ -30,6 +30,10 @@ if($p==='article'){
 if($p==='modif'){
 	$title ="Modifier un article";
 	include "pages/modif_article.php";
+}
+if($p==='creat'){
+	$title ="Ajouter un article";
+	include "pages/creat_article.php";
 }
 if($p==='commentaires'){
 	$title ="Gestion des commentaires";
